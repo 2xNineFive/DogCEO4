@@ -160,12 +160,12 @@ let turnNumber = 1
 const getScore = document.getElementById('score')
 
 
-// const turnNumberDict = {
-//     "1": 3, 
-//     "2": 2,
-//     "3": 3,
-//     "4": -5
-// }
+const turnNumberDict = {
+    "1": 3, 
+    "2": 2,
+    "3": 3,
+    "4": -5
+}
 
 // arrow functions do not have access to this
 imagesContainer.addEventListener('click', e => {
@@ -175,57 +175,21 @@ imagesContainer.addEventListener('click', e => {
     console.log(target.id, gameDog)
 
 
-    if (target.matches('img')) {
-        // console.log(true);
-        if (target.id === gameDog && turnNumber === 1) {
-            // console.log(true);
-            displayFeedback();
-            winThreePoints();
-            updatePlayerScore();
-            imagesContainer.innerHTML = '';
-            canStart=true
+    if (target.matches('img') && target.id === gameDog) {
 
-            turnNumber = 1
-            console.log(turnNumber);
+        displayFeedback();
+        adjustPoints(turnNumberDict[turnNumber])
+        updatePlayerScore();
+        imagesContainer.innerHTML = '';
+        canStart=true
+        turnNumber = 1
 
-        } else if (target.id === gameDog && turnNumber === 2) {
-            // console.log(true);
-            displayFeedback();
-            winTwoPoints();
-            updatePlayerScore();
-            imagesContainer.innerHTML = '';
-            canStart=true
-
-            turnNumber = 1
-            console.log(turnNumber);
-        
-
-        } else if (target.id === gameDog && turnNumber === 3) {
-            // console.log(true);
-            displayFeedback();
-            winOnePoint();
-            updatePlayerScore();
-            imagesContainer.innerHTML = '';
-            canStart=true
-
-            turnNumber = 1 
-            console.log(turnNumber);
-
-        } else if (target.id === gameDog && turnNumber === 4) {
-            // console.log(true);
-            displayFeedback();
-            lose5Points();
-            updatePlayerScore();
-            imagesContainer.innerHTML = '';
-
-            canStart=true
-            turnNumber = 1 
-
-        } else {
+    }
+    if (target.matches('img') && target.id !== gameDog) {
             ++turnNumber
             target.remove()
         }
-    }
+    // here
 
     if (!target.matches('img')) {
         console.log(false)
@@ -242,24 +206,8 @@ function displayFeedback () {
 
 }
 
-
-function winThreePoints () {
-    ++playerScore
-    ++playerScore
-    ++playerScore
-}
-
-function winTwoPoints () {
-    playerScore += 2
-}
-
-function winOnePoint () {
-    playerScore++
-
-}
-
-function lose5Points () {
-    playerScore -= 5 
+function adjustPoints(points) {
+    playerScore += points;
 }
 
 function updatePlayerScore() {

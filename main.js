@@ -67,8 +67,6 @@ const setGameDogImages = async () => {
     const fetch1Url = await fetch(`https://dog.ceo/api/breed/${x[0]}/images/random`);
     const url1Object = await fetch1Url.json();
     const url1 = url1Object.message;
-
-    
     const image1 = document.createElement('img');
     image1.src = `${url1}`;
     image1.width = "160";
@@ -133,10 +131,7 @@ const startGame = async () => {
         console.log(imagesContainer);
         canStart = false;
         feedbackPrompt.innerText = '';
-
-
-
-        
+   
     }
     if (canStart === false) {
         return

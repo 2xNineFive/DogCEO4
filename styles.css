@@ -1,0 +1,52 @@
+.button-1 {
+    height: 2rem;
+    width: 5rem;
+}
+
+body {
+    border: crimson 3px solid;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+}
+
+.score-container {
+    display: flex;
+    justify-content: center;
+}
+
+.images-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    flex-direction: row;
+    border: blue 3px solid;
+    height: 21rem;
+    row-gap: 10px;
+
+    column-gap: 10px;
+    justify-content: center;
+
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: green 3px solid;
+
+}
+
+image {
+    height: 20px;
+    width: 20px;
+}
+.prompt-container {
+    display: flex;
+    justify-content: center;
+}
